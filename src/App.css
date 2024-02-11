@@ -1,0 +1,133 @@
+*{
+  padding: 0px;
+  margin: 0px;
+}
+
+.main-component{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading{
+  padding : 50px;
+  font-family: sans-serif;
+}
+
+.main-segment{
+  width: 100%;
+  text-align: center;
+  height: 75%;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  /* border : 1px solid black; */
+   width : 200px;
+  height: 230px;
+  margin : 10px 10px;
+  background-color:lightgray;
+}
+
+
+.card-container{
+  display: grid;
+  gap :1rem;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  /* border : 1px solid black; */
+}
+
+
+.title{
+  /* border: 1px solid black; */
+  margin: 10px 10px;
+  padding: 5px 5px;
+ }
+
+ .card-container1{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+} 
+ button{
+  margin: 5px 5px;
+  padding: 5px 5px;
+  border-radius: 5px;
+
+} 
+
+
+.App{
+  /* display: flex; */
+  /* flex-direction: row;  */
+  text-align: center;
+  background-color:whitesmoke; 
+  
+} 
+ .head{
+  display: flex;
+  flex-direction: row;
+  margin: 5px 5px;
+  padding: 5px 5px;
+  justify-content: space-between;
+  background-color: white;
+} 
+.g{
+  margin:5px 5px;
+} 
+ .lay-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.nav{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 20%;
+  background-color:blue;
+  font-size:small;
+  border-radius: 5px;
+  position: fixed;
+}
+.nav >div {
+  margin: 20px 20px;
+  text-align: left;
+  
+}
+.sb{
+  font-weight: bold;
+  font-style: normal;
+}
+.dis{
+   /* border: 1px solid red;  */
+  height:100%;
+  width: 80%;
+  margin-left:20%;
+  position: reltive;
+} 
+
+
+.b{
+  background-color: blue;
+  border-radius: 5px;
+  padding: 0%;
+  color: white;
+
+  
+}
+ 
+ .title{
+  text-align: left;
+}
+@media only screen and (max-width:460px){
+  button{
+    font-size:xx-small;
+    padding:10px;
+  }
+}
