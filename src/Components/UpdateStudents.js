@@ -17,7 +17,7 @@ const feildValidationShema = yup.object({
 function UpdateStudents({students, setStudents}) {
     const {id} = useParams();
     //  const editStudent = students[id]
-    const editStudent = students.find(stud => stud._id === id);
+    const stud = students.find(stud => stud._id === id);
     // const [name, setName] = useState("")
     // const [batch, setBatch] = useState("")
     // const [gender, setGender] = useState("")
@@ -33,28 +33,22 @@ function UpdateStudents({students, setStudents}) {
 
     const {handleSubmit,handleChange,values,handleBlur,touched,errors} = useFormik({
       initialValues : {
-        name : (editStudent.name),
-        batch : (editStudent.batch),
-        gender : (editStudent.gender),
-        qualification : (editStudent.qualification),
+        name : (stud.name),
+        batch : (stud.batch),
+        gender : (stud.gender),
+        qualification : (stud.qualification),
   
       },
       validationSchema : feildValidationShema,
-      onSubmit : (editStudentData)=>{
+      onSubmit : (studData)=>{
         console.log("onsubmit");
-        updateStudent(editStudentData);
+        updateStudent(studData);
       },
     })
 
 
     async function updateStudent (updatedObject){
-        //  const updatedObject = {
-        //     name : name,
-        //     batch : batch,
-        //     gender: gender,
-        //     qualification :qualification
-        //  }
-     const response = await fetch(`https://node-mongodb-task3.vercel.app/students/edit/${editStudent.id}`, {
+            const response = await fetch(`https://node-mongodb-task3.vercel.app/students/edit/${stud._id}`, {
       method:"PUT",
       body:JSON.stringify(updatedObject),
       headers:{

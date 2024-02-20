@@ -20,7 +20,7 @@ const feildValidationShema = yup.object({
 function UpdateTeachers({teachers, setTeachers}) {
     const {id} = useParams();
     //  const editTeacher = teachers[id]
-    const editTeacher = teachers.find(teach => teach._id === id);
+    const teach = teachers.find(teach => teach._id === id);
     // const [name, setName] = useState("")
     // const [batch, setBatch] = useState("")
     // const [gender, setGender] = useState("")
@@ -36,16 +36,16 @@ function UpdateTeachers({teachers, setTeachers}) {
 
     const {handleSubmit,handleChange,values,handleBlur,touched,errors} = useFormik({
       initialValues : {
-        name : (editTeacher.name),
-        batch : (editTeacher.batch),
-        gender : (editTeacher.gender),
-        qualification : (editTeacher.qualification),
+        name : (teach.name),
+        batch : (teach.batch),
+        gender : (teach.gender),
+        qualification : (teach.qualification),
   
       },
       validationSchema : feildValidationShema,
-      onSubmit : (editTeacherData)=>{
+      onSubmit : (teachData)=>{
         console.log("onsubmit");
-        updateTeacher(editTeacherData);
+        updateTeacher(teachData);
       },
     })
 
@@ -56,7 +56,7 @@ function UpdateTeachers({teachers, setTeachers}) {
         //     gender: gender,
         //     qualification :qualification
         //  }
-     const response = await fetch(`https://node-mongodb-task3.vercel.app/mentors/edit/${editTeacher.id}`, {
+     const response = await fetch(`https://node-mongodb-task3.vercel.app/mentors/edit/${teach._id}`, {
       method:"PUT",
       body:JSON.stringify(updatedObject),
       headers:{
